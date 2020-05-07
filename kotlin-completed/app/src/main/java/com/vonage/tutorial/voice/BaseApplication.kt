@@ -9,6 +9,8 @@ class BaseApplication : Application() {
         super.onCreate()
 
         // Init the NexmoClient. You can retrieve NexmoClient instance latter by using NexmoClient.get()
-        NexmoClient.Builder().build(this)
+        NexmoClient.Builder()
+            .useFirstIceCandidate(true)
+            .build(this)
     }
 }
