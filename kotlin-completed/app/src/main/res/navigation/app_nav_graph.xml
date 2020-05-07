@@ -10,12 +10,12 @@
             android:label="LoginFragment"
             tools:layout="@layout/fragment_login">
         <action
-                android:id="@+id/action_loginFragment_to_chatFragment"
-                app:destination="@id/chatFragment" />
+                android:id="@+id/action_loginFragment_to_voiceFragment"
+                app:destination="@id/voiceFragment" />
     </fragment>
     <fragment
-            android:id="@+id/chatFragment"
-            android:name="com.vonage.tutorial.voice.ChatFragment"
-            android:label="ChatFragment"
-            tools:layout="@layout/fragment_chat" />
+            android:id="@+id/voiceFragment"
+            android:name="com.vonage.tutorial.voice.VoiceFragment"
+            android:label="VoiceFragment"
+            tools:layout="@layout/fragment_voice" />
 </navigation>

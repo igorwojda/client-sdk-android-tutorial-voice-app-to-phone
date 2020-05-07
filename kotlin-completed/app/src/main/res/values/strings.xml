@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Client SDK Tutorial voice</string>
-    <string name="login_as_user1">Login as User1</string>
-    <string name="login_as_user2">Login as User2</string>
-    <string name="send">Send</string>
-    <string name="message">Message</string>
+    <string name="login_as_alice">Login as Alice</string>
+    <string name="login_as_bob">Login as Bob</string>
+    <string name="call">Call %1$s</string>
+    <string name="calling">Calling %1$s</string>
+    <string name="answer_call_from">answer call from %1$s</string>
+    <string name="hangup_call_with">hangup call with %1$s</string>
     <string name="logout">Logout %1$s</string>
     <string name="user_says">%1$s :</string>
 </resources>
