@@ -10,15 +10,14 @@ import androidx.navigation.fragment.navArgs
 import com.vonage.tutorial.R
 import com.vonage.tutorial.voice.extension.observe
 import com.vonage.tutorial.voice.extension.toast
-import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlin.properties.Delegates
 
 class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
 
     private var dataLoading: Boolean by Delegates.observable(false) { _, _, newValue ->
-        loginAsAliceButton.isEnabled = !newValue
-        loginAsBobButton.isEnabled = !newValue
+        startInAppCallButton.isEnabled = !newValue
+        startPhoneCallButton.isEnabled = !newValue
         progressBar.isVisible = newValue
     }
 
@@ -29,6 +28,10 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
         context?.toast(it)
     }
 
+    private val loadingObserver = Observer<Boolean> {
+        dataLoading = it
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -36,6 +39,7 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
         viewModel.onInit(args.userName)
 
         observe(viewModel.toastLiveData, toastObserver)
+        observe(viewModel.loadingLiveData, loadingObserver)
 
         userNameTextView.text = args.userName
 
