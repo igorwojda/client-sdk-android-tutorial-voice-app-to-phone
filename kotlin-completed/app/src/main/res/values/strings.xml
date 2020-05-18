@@ -8,4 +8,10 @@
     <string name="hangup_call_with">hangup call with %1$s</string>
     <string name="logout">Logout %1$s</string>
     <string name="user_says">%1$s :</string>
+    <string name="incoming_call">Incoming call...</string>
+    <string name="or">Or</string>
+    <string name="on_a_call">On a call</string>
+    <string name="wait_for_an_incoming_call">Wait for an incoming call...</string>
+    <string name="start_a_phone_call">Start a phone call</string>
+    <string name="in_app_call">in app call</string>
 </resources>

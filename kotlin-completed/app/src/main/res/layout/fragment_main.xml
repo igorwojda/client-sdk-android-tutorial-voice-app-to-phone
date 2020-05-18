@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="48dp">
+
+    <TextView
+            android:id="@+id/userNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            tools:text="Hi, Alice!" />
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tvWait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="@string/wait_for_an_incoming_call" />
+
+        <TextView
+                android:id="@+id/tvOr1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="36dp"
+                android:text="@string/or" />
+
+        <Button
+                android:id="@+id/startInAppCallButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_phone"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="@string/in_app_call" />
+
+        <TextView
+                android:id="@+id/tvOr2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="36dp"
+                android:text="@string/or" />
+
+        <Button
+                android:id="@+id/startPhoneCallButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_phone"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="@string/start_a_phone_call" />
+
+
+    </LinearLayout>
+
+</FrameLayout>
