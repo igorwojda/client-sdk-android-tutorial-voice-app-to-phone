@@ -72,7 +72,6 @@ class MainViewModel : ViewModel() {
     }
 
     private fun startCall(callType: NexmoCallHandler) {
-//        client.logout()
         client.call(otherUser.name, callType, callListener)
         loadingMutableLiveData.postValue(true)
     }
