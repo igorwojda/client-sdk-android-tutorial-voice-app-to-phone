@@ -7,10 +7,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-
-        maven {
-            url "https://artifactory.ess-dev.com/artifactory/gradle-dev-local"
-        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.0'
@@ -19,17 +15,17 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
+    allprojects {
+        repositories {
+            google()
+            jcenter()
 
-        maven {
-            url "https://artifactory.ess-dev.com/artifactory/gradle-dev-local"
+            maven {
+                url "https://artifactory.ess-dev.com/artifactory/gradle-dev-local"
+            }
+
         }
-        
     }
-}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
