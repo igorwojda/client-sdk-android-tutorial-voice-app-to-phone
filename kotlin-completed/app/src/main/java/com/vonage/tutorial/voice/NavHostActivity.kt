@@ -20,8 +20,8 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_nav_host) {
     }
 
     override fun onBackPressed() {
-        val currentNavigationFragment = supportFragmentManager.currentNavigationFragment as? BackPressHandler
-        currentNavigationFragment?.onBackPressed()
+        val backPressHandler = supportFragmentManager.currentNavigationFragment as? BackPressHandler
+        backPressHandler?.onBackPressed()
 
         super.onBackPressed()
     }
