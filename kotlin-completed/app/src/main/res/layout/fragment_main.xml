@@ -36,13 +36,13 @@
                 android:text="@string/or" />
 
         <Button
-                android:id="@+id/startInAppCallButton"
+                android:id="@+id/callAppButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_phone"
                 android:drawablePadding="8dp"
                 android:padding="16dp"
-                android:text="@string/in_app_call" />
+                android:text="@string/call_app" />
 
         <TextView
                 android:id="@+id/tvOr2"
@@ -52,13 +52,13 @@
                 android:text="@string/or" />
 
         <Button
-                android:id="@+id/startPhoneCallButton"
+                android:id="@+id/callPhoneButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_phone"
                 android:drawablePadding="8dp"
                 android:padding="16dp"
-                android:text="@string/start_a_phone_call" />
+                android:text="@string/call_phone" />
 
         <androidx.core.widget.ContentLoadingProgressBar
                 android:id="@+id/progressBar"

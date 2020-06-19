@@ -16,8 +16,8 @@ import kotlin.properties.Delegates
 class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
 
     private var dataLoading: Boolean by Delegates.observable(false) { _, _, newValue ->
-        startInAppCallButton.isEnabled = !newValue
-        startPhoneCallButton.isEnabled = !newValue
+        callAppButton.isEnabled = !newValue
+        callPhoneButton.isEnabled = !newValue
         progressBar.isVisible = newValue
     }
 
@@ -43,11 +43,11 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
 
         userNameTextView.text = args.userName
 
-        startInAppCallButton.setOnClickListener {
+        callAppButton.setOnClickListener {
             viewModel.startInAppCall()
         }
 
-        startPhoneCallButton.setOnClickListener {
+        callPhoneButton.setOnClickListener {
             viewModel.startPhoneCall()
         }
     }
