@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.vonage.tutorial.R
 import com.vonage.tutorial.voice.extension.observe
+import com.vonage.tutorial.voice.extension.setText
 import com.vonage.tutorial.voice.extension.toast
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlin.properties.Delegates
@@ -16,8 +17,8 @@ import kotlin.properties.Delegates
 class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
 
     private var dataLoading: Boolean by Delegates.observable(false) { _, _, newValue ->
-        callAppButton.isEnabled = !newValue
-        callPhoneButton.isEnabled = !newValue
+        startAppCallButton.isEnabled = !newValue
+        startPhoneCallButton.isEnabled = !newValue
         progressBar.isVisible = newValue
     }
 
@@ -35,19 +36,19 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // ToDo pass user object in the args
+        // ToDo: pass user object in the args
         viewModel.onInit(args.userName)
 
         observe(viewModel.toastLiveData, toastObserver)
         observe(viewModel.loadingLiveData, loadingObserver)
 
-        userNameTextView.text = args.userName
+        userNameTextView.setText(R.string.hi, args.userName)
 
-        callAppButton.setOnClickListener {
+        startAppCallButton.setOnClickListener {
             viewModel.startInAppCall()
         }
 
-        callPhoneButton.setOnClickListener {
+        startPhoneCallButton.setOnClickListener {
             viewModel.startPhoneCall()
         }
     }
@@ -56,3 +57,5 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
         viewModel.onBackPressed()
     }
 }
+
+

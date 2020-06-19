@@ -1,5 +1,6 @@
 package com.vonage.tutorial.voice
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nexmo.client.NexmoCall
@@ -71,6 +72,7 @@ class MainViewModel : ViewModel() {
         startCall(NexmoCallHandler.SERVER)
     }
 
+    @SuppressLint("MissingPermission")
     private fun startCall(callType: NexmoCallHandler) {
         client.call(otherUser.name, callType, callListener)
         loadingMutableLiveData.postValue(true)
