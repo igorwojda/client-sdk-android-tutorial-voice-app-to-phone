@@ -6,7 +6,7 @@
         app:startDestination="@id/loginFragment">
     <fragment
             android:id="@+id/loginFragment"
-            android:name="com.vonage.tutorial.voice.LoginFragment"
+            android:name="com.vonage.tutorial.voice.view.login.LoginFragment"
             tools:layout="@layout/fragment_login">
         <action
                 android:id="@+id/action_loginFragment_to_voiceFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
             android:id="@+id/mainFragment"
-            android:name="com.vonage.tutorial.voice.MainFragment"
+            android:name="com.vonage.tutorial.voice.view.main.MainFragment"
             tools:layout="@layout/fragment_main">
         <action
                 android:id="@+id/action_mainFragment_to_incomingCallFragment"
@@ -30,12 +30,12 @@
 
     <fragment
             android:id="@+id/onCallFragment"
-            android:name="com.vonage.tutorial.voice.OnCallFragment"
+            android:name="com.vonage.tutorial.voice.view.oncall.OnCallFragment"
             tools:layout="@layout/fragment_on_call" />
 
     <fragment
             android:id="@+id/incomingCallFragment"
-            android:name="com.vonage.tutorial.voice.IncomingCallFragment"
+            android:name="com.vonage.tutorial.voice.view.incommingcall.IncomingCallFragment"
             tools:layout="@layout/fragment_incoming_call">
         <argument
                 android:name="otherUserName"

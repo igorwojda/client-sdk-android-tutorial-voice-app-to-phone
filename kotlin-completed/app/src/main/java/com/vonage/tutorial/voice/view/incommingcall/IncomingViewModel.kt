@@ -1,4 +1,4 @@
-package com.vonage.tutorial.voice
+package com.vonage.tutorial.voice.view.incommingcall
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,7 +20,8 @@ class IncomingViewModel : ViewModel() {
 
     private val answerCallListener = object : NexmoRequestListener<NexmoCall> {
         override fun onSuccess(call: NexmoCall?) {
-            val navDirections = IncomingCallFragmentDirections.actionIncomingCallFragmentToOnCallFragment()
+            val navDirections =
+                IncomingCallFragmentDirections.actionIncomingCallFragmentToOnCallFragment()
             navManager.navigate(navDirections)
         }
 

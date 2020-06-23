@@ -1,4 +1,4 @@
-package com.vonage.tutorial.voice
+package com.vonage.tutorial.voice.view.login
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.nexmo.client.request_listener.NexmoConnectionListener.ConnectionStatus
 import com.vonage.tutorial.R
+import com.vonage.tutorial.voice.Config
+import com.vonage.tutorial.voice.User
 import com.vonage.tutorial.voice.extension.observe
 import com.vonage.tutorial.voice.extension.toast
 import kotlinx.android.synthetic.main.fragment_login.*

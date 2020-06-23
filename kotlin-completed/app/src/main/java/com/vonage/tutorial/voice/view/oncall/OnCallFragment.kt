@@ -1,4 +1,4 @@
-package com.vonage.tutorial.voice
+package com.vonage.tutorial.voice.view.oncall
 
 import android.os.Bundle
 import android.view.View
@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.vonage.tutorial.R
+import com.vonage.tutorial.voice.BackPressHandler
 import com.vonage.tutorial.voice.extension.observe
 import com.vonage.tutorial.voice.extension.toast
 import kotlinx.android.synthetic.main.fragment_on_call.*
 
-class OnCallFragment : Fragment(R.layout.fragment_on_call), BackPressHandler {
+class OnCallFragment : Fragment(R.layout.fragment_on_call),
+    BackPressHandler {
 
     private val viewModel by viewModels<OnCallViewModel>()
 

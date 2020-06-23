@@ -9,8 +9,9 @@
             android:id="@+id/userNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|start"
-            tools:text="Hi, Alice!" />
+            android:layout_gravity="top|end"
+            android:textSize="25sp"
+            tools:text="Hello Alice" />
 
 
     <LinearLayout
@@ -36,13 +37,13 @@
                 android:text="@string/or" />
 
         <Button
-                android:id="@+id/callAppButton"
+                android:id="@+id/startAppCallButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_phone"
                 android:drawablePadding="8dp"
                 android:padding="16dp"
-                android:text="@string/call_app" />
+                tools:text="@string/start_call_app_with" />
 
         <TextView
                 android:id="@+id/tvOr2"
@@ -52,13 +53,13 @@
                 android:text="@string/or" />
 
         <Button
-                android:id="@+id/callPhoneButton"
+                android:id="@+id/startPhoneCallButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_phone"
                 android:drawablePadding="8dp"
                 android:padding="16dp"
-                android:text="@string/call_phone" />
+                android:text="@string/start_call_phone" />
 
         <androidx.core.widget.ContentLoadingProgressBar
                 android:id="@+id/progressBar"

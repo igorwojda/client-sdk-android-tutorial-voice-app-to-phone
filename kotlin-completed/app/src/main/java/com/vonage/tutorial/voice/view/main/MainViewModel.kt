@@ -1,4 +1,4 @@
-package com.vonage.tutorial.voice
+package com.vonage.tutorial.voice.view.main
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
@@ -9,9 +9,11 @@ import com.nexmo.client.NexmoClient
 import com.nexmo.client.NexmoIncomingCallListener
 import com.nexmo.client.request_listener.NexmoApiError
 import com.nexmo.client.request_listener.NexmoRequestListener
+import com.vonage.tutorial.voice.Config
 import com.vonage.tutorial.voice.extension.asLiveData
 import com.vonage.tutorial.voice.util.CallManager
 import com.vonage.tutorial.voice.util.NavManager
+import com.vonage.tutorial.voice.util.observer
 import timber.log.Timber
 
 class MainViewModel : ViewModel() {
@@ -20,7 +22,9 @@ class MainViewModel : ViewModel() {
     private val callManager = CallManager
     private val navManager = NavManager
 
-    private lateinit var otherUser: User
+    private var otherUserName: String by observer("") {
+        _otherUserNameMutableLiveData.postValue(it)
+    }
 
     private val toastMutableLiveData = MutableLiveData<String>()
     val toastLiveData = toastMutableLiveData.asLiveData()
@@ -28,10 +32,19 @@ class MainViewModel : ViewModel() {
     private val loadingMutableLiveData = MutableLiveData<Boolean>()
     val loadingLiveData = loadingMutableLiveData.asLiveData()
 
+    private val _currentUserNameMutableLiveData = MutableLiveData<String>()
+    val currentUserNameLiveData = _currentUserNameMutableLiveData.asLiveData()
+
+    private val _otherUserNameMutableLiveData = MutableLiveData<String>()
+    val otherUserLiveData = _otherUserNameMutableLiveData.asLiveData()
+
     private val incomingCallListener = NexmoIncomingCallListener { call ->
         callManager.onGoingCall = call
         val otherUserName = call.callMembers.first().user.name
-        val navDirections = MainFragmentDirections.actionMainFragmentToIncomingCallFragment(otherUserName)
+        val navDirections =
+            MainFragmentDirections.actionMainFragmentToIncomingCallFragment(
+                otherUserName
+            )
         navManager.navigate(navDirections)
     }
 
@@ -40,7 +53,8 @@ class MainViewModel : ViewModel() {
             callManager.onGoingCall = call
 
             loadingMutableLiveData.postValue(false)
-            val navDirections = MainFragmentDirections.actionMainFragmentToOnCallFragment()
+            val navDirections =
+                MainFragmentDirections.actionMainFragmentToOnCallFragment()
             navManager.navigate(navDirections)
         }
 
@@ -51,12 +65,10 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    private val _state = MutableLiveData<String>()
-    val state = _state.asLiveData()
-
-    fun onInit(currentUserName: String) {
-        otherUser = Config.getOtherUser(currentUserName)
-
+    fun onInit(mainFragmentArg: MainFragmentArgs) {
+        val currentUserName = mainFragmentArg.userName
+        _currentUserNameMutableLiveData.postValue(currentUserName)
+        otherUserName = Config.getOtherUserName(currentUserName)
         client.addIncomingCallListener(incomingCallListener)
     }
 
@@ -64,17 +76,16 @@ class MainViewModel : ViewModel() {
         client.removeIncomingCallListeners()
     }
 
+    @SuppressLint("MissingPermission")
     fun startInAppCall() {
-        startCall(NexmoCallHandler.IN_APP)
-    }
-
-    fun startPhoneCall() {
-        startCall(NexmoCallHandler.SERVER)
+        client.call(otherUserName, NexmoCallHandler.IN_APP, callListener)
+        loadingMutableLiveData.postValue(true)
     }
 
     @SuppressLint("MissingPermission")
-    private fun startCall(callType: NexmoCallHandler) {
-        client.call(otherUser.name, callType, callListener)
+    fun startPhoneCall() {
+        // Number is ignored because it is specified in NCCO config
+        client.call("IGNORED_NUMBER", NexmoCallHandler.SERVER, callListener)
         loadingMutableLiveData.postValue(true)
     }
 
