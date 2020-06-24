@@ -1,9 +1,9 @@
 package com.vonage.tutorial.voice.view.incommingcall
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nexmo.client.NexmoCall
-import com.nexmo.client.NexmoClient
 import com.nexmo.client.request_listener.NexmoApiError
 import com.nexmo.client.request_listener.NexmoRequestListener
 import com.vonage.tutorial.voice.extension.asLiveData
@@ -11,12 +11,14 @@ import com.vonage.tutorial.voice.util.CallManager
 import com.vonage.tutorial.voice.util.NavManager
 
 class IncomingViewModel : ViewModel() {
-    private val client = NexmoClient.get()
     private val callManager = CallManager
     private val navManager = NavManager
 
     private val toastMutableLiveData = MutableLiveData<String>()
     val toastLiveData = toastMutableLiveData.asLiveData()
+
+    private val _currentUserNameMutableLiveData = MutableLiveData<String>()
+    val currentUserNameLiveData = _currentUserNameMutableLiveData.asLiveData()
 
     private val answerCallListener = object : NexmoRequestListener<NexmoCall> {
         override fun onSuccess(call: NexmoCall?) {
@@ -34,6 +36,7 @@ class IncomingViewModel : ViewModel() {
         hangupInternal(true)
     }
 
+    @SuppressLint("MissingPermission")
     fun answer() {
         callManager.onGoingCall?.answer(answerCallListener)
     }
@@ -56,5 +59,9 @@ class IncomingViewModel : ViewModel() {
                 toastMutableLiveData.postValue(apiError.message)
             }
         })
+    }
+
+    fun onInit(args: IncomingCallFragmentArgs) {
+        _currentUserNameMutableLiveData.postValue(args.otherUserName)
     }
 }
