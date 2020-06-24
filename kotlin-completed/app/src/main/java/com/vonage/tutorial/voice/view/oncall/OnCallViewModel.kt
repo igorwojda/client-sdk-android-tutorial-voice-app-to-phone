@@ -23,7 +23,7 @@ class OnCallViewModel : ViewModel() {
     val toastLiveData = toastMutableLiveData.asLiveData()
 
     private val _otherUserNameMutableLiveData = MutableLiveData<String>()
-    val otherUserLiveData = _otherUserNameMutableLiveData.asLiveData()
+    val otherUserNameLiveData = _otherUserNameMutableLiveData.asLiveData()
 
     private val callEventListener = object : NexmoCallEventListener {
         override fun onMemberStatusUpdated(nexmoCallStatus: NexmoCallMemberStatus, callMember: NexmoCallMember) {

@@ -9,7 +9,6 @@ import androidx.navigation.fragment.navArgs
 import com.vonage.tutorial.R
 import com.vonage.tutorial.voice.BackPressHandler
 import com.vonage.tutorial.voice.extension.observe
-import com.vonage.tutorial.voice.extension.setText
 import com.vonage.tutorial.voice.extension.toast
 import kotlinx.android.synthetic.main.fragment_on_call.*
 
@@ -25,7 +24,7 @@ class OnCallFragment : Fragment(R.layout.fragment_on_call),
     }
 
     private val otherUserNameObserver = Observer<String> {
-        otherUserNameTextView.setText(R.string.incoming_call_from, it)
+        otherUserNameTextView.text = it
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,6 +33,7 @@ class OnCallFragment : Fragment(R.layout.fragment_on_call),
         viewModel.onInit(args)
 
         observe(viewModel.toastLiveData, toastObserver)
+        observe(viewModel.otherUserNameLiveData, otherUserNameObserver)
 
         hangupFab.setOnClickListener {
             viewModel.hangup()
