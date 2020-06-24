@@ -33,7 +33,7 @@
                 android:id="@+id/tvOr1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="36dp"
+                android:layout_marginTop="18dp"
                 android:text="@string/or" />
 
         <Button
@@ -41,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_phone"
+                android:layout_marginTop="18dp"
                 android:drawablePadding="8dp"
                 android:padding="16dp"
                 tools:text="@string/start_call_app_with" />
@@ -49,7 +50,7 @@
                 android:id="@+id/tvOr2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="36dp"
+                android:layout_marginTop="18dp"
                 android:text="@string/or" />
 
         <Button
@@ -58,11 +59,13 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_phone"
                 android:drawablePadding="8dp"
+                android:layout_marginTop="18dp"
                 android:padding="16dp"
                 android:text="@string/start_call_phone" />
 
         <androidx.core.widget.ContentLoadingProgressBar
                 android:id="@+id/progressBar"
+                android:layout_marginTop="36dp"
                 style="?android:attr/progressBarStyleLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
