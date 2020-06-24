@@ -41,10 +41,7 @@ class MainViewModel : ViewModel() {
     private val incomingCallListener = NexmoIncomingCallListener { call ->
         callManager.onGoingCall = call
         val otherUserName = call.callMembers.first().user.name
-        val navDirections =
-            MainFragmentDirections.actionMainFragmentToIncomingCallFragment(
-                otherUserName
-            )
+        val navDirections = MainFragmentDirections.actionMainFragmentToIncomingCallFragment(otherUserName)
         navManager.navigate(navDirections)
     }
 

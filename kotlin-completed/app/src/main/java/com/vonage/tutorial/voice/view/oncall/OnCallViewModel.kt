@@ -6,18 +6,16 @@ import com.nexmo.client.NexmoCall
 import com.nexmo.client.NexmoCallEventListener
 import com.nexmo.client.NexmoCallMember
 import com.nexmo.client.NexmoCallMemberStatus
-import com.nexmo.client.NexmoClient
 import com.nexmo.client.NexmoMediaActionState
 import com.nexmo.client.request_listener.NexmoApiError
 import com.nexmo.client.request_listener.NexmoRequestListener
+import com.vonage.tutorial.R
 import com.vonage.tutorial.voice.extension.asLiveData
 import com.vonage.tutorial.voice.util.CallManager
 import com.vonage.tutorial.voice.util.NavManager
 import timber.log.Timber
 
 class OnCallViewModel : ViewModel() {
-    private val client = NexmoClient.get()
-
     private val callManager = CallManager
     private val navManager = NavManager
 
@@ -30,7 +28,7 @@ class OnCallViewModel : ViewModel() {
 
             if (nexmoCallStatus == NexmoCallMemberStatus.COMPLETED || nexmoCallStatus == NexmoCallMemberStatus.CANCELED) {
                 callManager.onGoingCall = null
-                navManager.popBackStack()
+                navManager.popBackStack(R.id.mainFragment, false)
             }
         }
 
@@ -59,29 +57,21 @@ class OnCallViewModel : ViewModel() {
     }
 
     fun onBackPressed() {
-        hangupInternal(false)
+        hangupInternal()
     }
 
     fun hangup() {
-        hangupInternal(true)
+        hangupInternal()
     }
 
-    private fun hangupInternal(popBackStack: Boolean) {
+    private fun hangupInternal() {
         callManager.onGoingCall?.hangup(object : NexmoRequestListener<NexmoCall> {
             override fun onSuccess(call: NexmoCall?) {
                 callManager.onGoingCall = null
-
-                if (popBackStack) {
-                    navManager.popBackStack()
-                }
             }
 
             override fun onError(apiError: NexmoApiError) {
                 toastMutableLiveData.postValue(apiError.message)
-
-                if (popBackStack) {
-                    navManager.popBackStack()
-                }
             }
         })
     }
