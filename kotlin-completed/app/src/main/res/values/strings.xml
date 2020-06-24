@@ -9,7 +9,7 @@
     <string name="logout">Logout %1$s</string>
     <string name="hi">Hi %1$s</string>
     <string name="user_says">%1$s :</string>
-    <string name="incoming_call_from">Incoming call from %1$s</string>
+    <string name="incoming_call_from">Incoming call from</string>
     <string name="or">Or</string>
     <string name="on_a_call_with">On a call with</string>
     <string name="wait_for_an_incoming_call">Wait for an incoming call...</string>

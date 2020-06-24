@@ -8,6 +8,16 @@
         android:gravity="center"
         android:padding="48dp">
 
+    <TextView
+            android:id="@+id/incomingCallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/userNameTextView"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:textSize="26sp"
+            tools:text="@string/incoming_call_from" />
+
 
     <TextView
             android:id="@+id/userNameTextView"
@@ -19,16 +29,6 @@
             android:layout_marginTop="50dp"
             android:textSize="40sp"
             tools:text="Bob" />
-
-    <TextView
-            android:id="@+id/incomingCallTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/userNameTextView"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="30dp"
-            tools:text="@string/incoming_call_from"
-            android:textSize="26sp" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

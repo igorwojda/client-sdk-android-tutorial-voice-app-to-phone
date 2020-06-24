@@ -9,7 +9,6 @@ import androidx.navigation.fragment.navArgs
 import com.vonage.tutorial.R
 import com.vonage.tutorial.voice.BackPressHandler
 import com.vonage.tutorial.voice.extension.observe
-import com.vonage.tutorial.voice.extension.setText
 import com.vonage.tutorial.voice.extension.toast
 import kotlinx.android.synthetic.main.fragment_incoming_call.*
 
@@ -21,7 +20,7 @@ class IncomingCallFragment : Fragment(R.layout.fragment_incoming_call),
     }
 
     private val otherUserNameLiveData = Observer<String> {
-        incomingCallTextView.setText(R.string.incoming_call_from, it)
+        userNameTextView.text = it
     }
 
     private val viewModel by viewModels<IncomingViewModel>()
