@@ -50,8 +50,7 @@ class MainViewModel : ViewModel() {
             callManager.onGoingCall = call
 
             loadingMutableLiveData.postValue(false)
-            val navDirections =
-                MainFragmentDirections.actionMainFragmentToOnCallFragment()
+            val navDirections = MainFragmentDirections.actionMainFragmentToOnCallFragment()
             navManager.navigate(navDirections)
         }
 
@@ -66,6 +65,9 @@ class MainViewModel : ViewModel() {
         val currentUserName = mainFragmentArg.userName
         _currentUserNameMutableLiveData.postValue(currentUserName)
         otherUserName = Config.getOtherUserName(currentUserName)
+
+        //The same callback can be registered twice, so we are removing all callbacks to be save
+        client.removeIncomingCallListeners()
         client.addIncomingCallListener(incomingCallListener)
     }
 
