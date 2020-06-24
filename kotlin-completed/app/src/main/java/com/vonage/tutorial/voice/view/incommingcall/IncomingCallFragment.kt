@@ -20,7 +20,7 @@ class IncomingCallFragment : Fragment(R.layout.fragment_incoming_call),
         context?.toast(it)
     }
 
-    private val currentUserNameObserver = Observer<String> {
+    private val otherUserNameLiveData = Observer<String> {
         incomingCallTextView.setText(R.string.incoming_call_from, it)
     }
 
@@ -33,7 +33,7 @@ class IncomingCallFragment : Fragment(R.layout.fragment_incoming_call),
         viewModel.onInit(args)
 
         observe(viewModel.toastLiveData, toastObserver)
-        observe(viewModel.currentUserNameLiveData, currentUserNameObserver)
+        observe(viewModel.otherUserNameLiveData, otherUserNameLiveData)
 
         hangupFab.setOnClickListener {
             viewModel.hangup()

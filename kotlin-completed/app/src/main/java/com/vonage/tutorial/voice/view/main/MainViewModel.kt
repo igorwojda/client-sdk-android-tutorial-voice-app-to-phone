@@ -50,7 +50,7 @@ class MainViewModel : ViewModel() {
             callManager.onGoingCall = call
 
             loadingMutableLiveData.postValue(false)
-            val navDirections = MainFragmentDirections.actionMainFragmentToOnCallFragment()
+            val navDirections = MainFragmentDirections.actionMainFragmentToOnCallFragment(otherUserName)
             navManager.navigate(navDirections)
         }
 
@@ -83,7 +83,7 @@ class MainViewModel : ViewModel() {
 
     @SuppressLint("MissingPermission")
     fun startPhoneCall() {
-        // Number is ignored because it is specified in NCCO config
+        // Callee number is ignored because it is specified in NCCO config
         client.call("IGNORED_NUMBER", NexmoCallHandler.SERVER, callListener)
         loadingMutableLiveData.postValue(true)
     }

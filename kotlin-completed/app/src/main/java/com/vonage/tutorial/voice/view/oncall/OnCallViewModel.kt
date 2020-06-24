@@ -22,6 +22,9 @@ class OnCallViewModel : ViewModel() {
     private val toastMutableLiveData = MutableLiveData<String>()
     val toastLiveData = toastMutableLiveData.asLiveData()
 
+    private val _otherUserNameMutableLiveData = MutableLiveData<String>()
+    val otherUserLiveData = _otherUserNameMutableLiveData.asLiveData()
+
     private val callEventListener = object : NexmoCallEventListener {
         override fun onMemberStatusUpdated(nexmoCallStatus: NexmoCallMemberStatus, callMember: NexmoCallMember) {
             Timber.d("CallEventListener.onMemberStatusUpdated: ${callMember.user.name} : $nexmoCallStatus")
@@ -74,5 +77,9 @@ class OnCallViewModel : ViewModel() {
                 toastMutableLiveData.postValue(apiError.message)
             }
         })
+    }
+
+    fun onInit(args: OnCallFragmentArgs) {
+        _otherUserNameMutableLiveData.postValue(args.otherUserName)
     }
 }

@@ -9,21 +9,25 @@ import com.nexmo.client.request_listener.NexmoRequestListener
 import com.vonage.tutorial.voice.extension.asLiveData
 import com.vonage.tutorial.voice.util.CallManager
 import com.vonage.tutorial.voice.util.NavManager
+import com.vonage.tutorial.voice.util.observer
 
 class IncomingViewModel : ViewModel() {
     private val callManager = CallManager
     private val navManager = NavManager
 
+    private var otherUserName: String by observer("") {
+        _otherUserNameMutableLiveData.postValue(it)
+    }
+
+    private val _otherUserNameMutableLiveData = MutableLiveData<String>()
+    val otherUserNameLiveData = _otherUserNameMutableLiveData.asLiveData()
+
     private val toastMutableLiveData = MutableLiveData<String>()
     val toastLiveData = toastMutableLiveData.asLiveData()
 
-    private val _currentUserNameMutableLiveData = MutableLiveData<String>()
-    val currentUserNameLiveData = _currentUserNameMutableLiveData.asLiveData()
-
     private val answerCallListener = object : NexmoRequestListener<NexmoCall> {
         override fun onSuccess(call: NexmoCall?) {
-            val navDirections =
-                IncomingCallFragmentDirections.actionIncomingCallFragmentToOnCallFragment()
+            val navDirections = IncomingCallFragmentDirections.actionIncomingCallFragmentToOnCallFragment(otherUserName)
             navManager.navigate(navDirections)
         }
 
@@ -62,6 +66,6 @@ class IncomingViewModel : ViewModel() {
     }
 
     fun onInit(args: IncomingCallFragmentArgs) {
-        _currentUserNameMutableLiveData.postValue(args.otherUserName)
+        otherUserName = args.otherUserName
     }
 }
