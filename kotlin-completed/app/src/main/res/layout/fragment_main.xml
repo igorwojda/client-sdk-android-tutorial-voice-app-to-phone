@@ -6,13 +6,12 @@
         android:padding="48dp">
 
     <TextView
-            android:id="@+id/userNameTextView"
+            android:id="@+id/currrentUserNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|end"
             android:textSize="25sp"
             tools:text="Hello Alice" />
-
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +33,7 @@
                 android:id="@+id/tvOr1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="36dp"
                 android:text="@string/or" />
 
         <Button
@@ -42,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_phone"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="36dp"
                 android:drawablePadding="8dp"
                 android:padding="16dp"
                 tools:text="@string/start_call_app_with" />
@@ -51,7 +50,7 @@
                 android:id="@+id/tvOr2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="36dp"
                 android:text="@string/or" />
 
         <Button
@@ -60,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_phone"
                 android:drawablePadding="8dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="36dp"
                 android:padding="16dp"
                 android:text="@string/start_call_phone" />
 
@@ -71,8 +70,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="invisible" />
-
-
     </LinearLayout>
 
 </FrameLayout>

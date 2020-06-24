@@ -20,7 +20,7 @@ class IncomingCallFragment : Fragment(R.layout.fragment_incoming_call),
     }
 
     private val otherUserNameLiveData = Observer<String> {
-        userNameTextView.text = it
+        otherUserNameTextView.text = it
     }
 
     private val viewModel by viewModels<IncomingViewModel>()
