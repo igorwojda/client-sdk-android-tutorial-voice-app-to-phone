@@ -21,12 +21,13 @@
             tools:text="Bob" />
 
     <TextView
+            android:id="@+id/incomingCallTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/userNameTextView"
             android:layout_centerInParent="true"
             android:layout_marginTop="30dp"
-            android:text="@string/incoming_call"
+            tools:text="@string/incoming_call_from"
             android:textSize="26sp" />
 
 
