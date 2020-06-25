@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="48dp">
+
+    <TextView
+            android:id="@+id/currrentUserNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:textSize="25sp"
+            tools:text="Hello Alice" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tvWait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="@string/wait_for_an_incoming_call"
+                android:textSize="20sp" />
+
+        <TextView
+                android:id="@+id/tvOr1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:text="@string/or" />
+
+        <Button
+                android:id="@+id/startAppCallButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:drawableEnd="@drawable/ic_phone"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                tools:text="@string/start_call_app_with" />
+
+        <TextView
+                android:id="@+id/tvOr2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:text="@string/or" />
+
+        <Button
+                android:id="@+id/startPhoneCallButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:drawableEnd="@drawable/ic_phone"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="@string/start_call_phone" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:visibility="invisible" />
+    </LinearLayout>
+
+</FrameLayout>
