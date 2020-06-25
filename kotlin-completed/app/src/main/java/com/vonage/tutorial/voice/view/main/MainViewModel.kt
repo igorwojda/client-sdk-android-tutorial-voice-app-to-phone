@@ -26,6 +26,9 @@ class MainViewModel : ViewModel() {
         _otherUserNameMutableLiveData.postValue(it)
     }
 
+    // SDK does not expose this info on call success
+    private var lastCalledUserName = ""
+
     private val toastMutableLiveData = MutableLiveData<String>()
     val toastLiveData = toastMutableLiveData.asLiveData()
 
@@ -50,7 +53,8 @@ class MainViewModel : ViewModel() {
             callManager.onGoingCall = call
 
             loadingMutableLiveData.postValue(false)
-            val navDirections = MainFragmentDirections.actionMainFragmentToOnCallFragment(otherUserName)
+
+            val navDirections = MainFragmentDirections.actionMainFragmentToOnCallFragment(lastCalledUserName)
             navManager.navigate(navDirections)
         }
 
@@ -77,6 +81,7 @@ class MainViewModel : ViewModel() {
 
     @SuppressLint("MissingPermission")
     fun startInAppCall() {
+        lastCalledUserName = otherUserName
         client.call(otherUserName, NexmoCallHandler.IN_APP, callListener)
         loadingMutableLiveData.postValue(true)
     }
@@ -84,6 +89,7 @@ class MainViewModel : ViewModel() {
     @SuppressLint("MissingPermission")
     fun startPhoneCall() {
         // Callee number is ignored because it is specified in NCCO config
+        lastCalledUserName = ""
         client.call("IGNORED_NUMBER", NexmoCallHandler.SERVER, callListener)
         loadingMutableLiveData.postValue(true)
     }
