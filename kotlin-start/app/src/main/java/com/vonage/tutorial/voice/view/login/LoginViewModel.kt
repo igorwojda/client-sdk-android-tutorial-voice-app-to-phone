@@ -17,13 +17,13 @@ class LoginViewModel : ViewModel() {
 
     private var user: User? = null
 
-    private val client = NexmoClient.get()
+    private val client: NexmoClient = TODO("Retrieve NexmoClient instance")
 
     init {
         client.setConnectionListener { newConnectionStatus, _ ->
 
             if (newConnectionStatus == ConnectionStatus.CONNECTED) {
-                navigateToMainScreen()
+                navigateToMainFragment()
                 return@setConnectionListener
             }
 
@@ -31,7 +31,7 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    private fun navigateToMainScreen() {
+    private fun navigateToMainFragment() {
         val userName = checkNotNull(user?.name) { "user is null" }
         val navDirections =
             LoginFragmentDirections.actionLoginFragmentToVoiceFragment(
@@ -41,9 +41,6 @@ class LoginViewModel : ViewModel() {
     }
 
     fun onLoginUser(user: User) {
-        if (!user.jwt.isBlank()) {
-            this.user = user
-            client.login(user.jwt)
-        }
+        // TODO: Login user
     }
 }

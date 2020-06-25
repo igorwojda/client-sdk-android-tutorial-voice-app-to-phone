@@ -80,15 +80,14 @@ class MainViewModel : ViewModel() {
     }
 
     @SuppressLint("MissingPermission")
-    fun startInAppCall() {
+    fun startAppToAppCall() {
         lastCalledUserName = otherUserName
         client.call(otherUserName, NexmoCallHandler.IN_APP, callListener)
         loadingMutableLiveData.postValue(true)
     }
 
     @SuppressLint("MissingPermission")
-    fun startPhoneCall() {
-        // Callee number is ignored because it is specified in NCCO config
+    fun startAppToPhoneCall() {
         lastCalledUserName = ""
         client.call("IGNORED_NUMBER", NexmoCallHandler.SERVER, callListener)
         loadingMutableLiveData.postValue(true)

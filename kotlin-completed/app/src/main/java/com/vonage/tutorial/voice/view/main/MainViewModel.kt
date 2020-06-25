@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nexmo.client.NexmoCall
-import com.nexmo.client.NexmoCallHandler
 import com.nexmo.client.NexmoClient
 import com.nexmo.client.NexmoIncomingCallListener
 import com.nexmo.client.request_listener.NexmoApiError
@@ -80,18 +79,13 @@ class MainViewModel : ViewModel() {
     }
 
     @SuppressLint("MissingPermission")
-    fun startInAppCall() {
-        lastCalledUserName = otherUserName
-        client.call(otherUserName, NexmoCallHandler.IN_APP, callListener)
-        loadingMutableLiveData.postValue(true)
+    fun startAppToAppCall() {
+        TODO("Fill be body for app to app call tutorial")
     }
 
     @SuppressLint("MissingPermission")
-    fun startPhoneCall() {
-        // Callee number is ignored because it is specified in NCCO config
-        lastCalledUserName = ""
-        client.call("IGNORED_NUMBER", NexmoCallHandler.SERVER, callListener)
-        loadingMutableLiveData.postValue(true)
+    fun startAppToPhoneCall() {
+        TODO("Fill be body for app to phone call tutorial")
     }
 
     fun onBackPressed() {

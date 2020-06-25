@@ -13,6 +13,6 @@
     <string name="or">Or</string>
     <string name="on_a_call_with">On a call with</string>
     <string name="wait_for_an_incoming_call">Wait for an incoming call...</string>
-    <string name="start_call_phone">Start phone call</string>
-    <string name="start_call_app_with">Start app call with %1$s</string>
+    <string name="start_app_to_phone_call">Start app to phone call</string>
+    <string name="start_app_to_app_call_with">Start app to app call with %1$s</string>
 </resources>
