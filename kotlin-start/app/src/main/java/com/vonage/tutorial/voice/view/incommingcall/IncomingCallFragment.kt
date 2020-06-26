@@ -19,20 +19,12 @@ class IncomingCallFragment : Fragment(R.layout.fragment_incoming_call),
         context?.toast(it)
     }
 
-    private val otherUserNameLiveData = Observer<String> {
-        otherUserNameTextView.text = it
-    }
-
     private val viewModel by viewModels<IncomingViewModel>()
-    private val args by navArgs<IncomingCallFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.onInit(args)
-
         observe(viewModel.toastLiveData, toastObserver)
-        observe(viewModel.otherUserNameLiveData, otherUserNameLiveData)
 
         hangupFab.setOnClickListener {
             viewModel.hangup()

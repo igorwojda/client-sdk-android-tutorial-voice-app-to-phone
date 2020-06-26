@@ -30,7 +30,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private var dataLoading: Boolean by Delegates.observable(false) { _, _, newValue ->
         loginAsAliceButton.isEnabled = !newValue
-        loginAsBobButton.isEnabled = !newValue
         progressBar.isVisible = newValue
     }
 
@@ -49,10 +48,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         loginAsAliceButton.setOnClickListener {
             loginUser(Config.alice)
-        }
-
-        loginAsBobButton.setOnClickListener {
-            loginUser(Config.bob)
         }
 
         requestCallPermissions()

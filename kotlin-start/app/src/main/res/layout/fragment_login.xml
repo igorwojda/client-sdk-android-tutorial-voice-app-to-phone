@@ -28,18 +28,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vonageLogo" />
 
-    <Button
-            android:id="@+id/loginAsBobButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="@string/login_as_bob"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginAsAliceButton"
-            app:layout_constraintVertical_bias="0.1" />
-
     <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleLarge"
@@ -49,7 +37,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginAsBobButton" />
+            app:layout_constraintTop_toBottomOf="@+id/loginAsAliceButton" />
 
     <TextView
             android:id="@+id/connectionStatusTextView"
