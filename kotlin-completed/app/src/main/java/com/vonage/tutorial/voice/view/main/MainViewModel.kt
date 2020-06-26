@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nexmo.client.NexmoCall
 import com.nexmo.client.NexmoClient
-import com.nexmo.client.NexmoIncomingCallListener
 import com.nexmo.client.request_listener.NexmoApiError
 import com.nexmo.client.request_listener.NexmoRequestListener
 import com.vonage.tutorial.voice.extension.asLiveData
@@ -28,12 +27,6 @@ class MainViewModel : ViewModel() {
     private val _currentUserNameMutableLiveData = MutableLiveData<String>()
     val currentUserNameLiveData = _currentUserNameMutableLiveData.asLiveData()
 
-    private val incomingCallListener = NexmoIncomingCallListener { call ->
-        callManager.onGoingCall = call
-        val navDirections = MainFragmentDirections.actionMainFragmentToIncomingCallFragment()
-        navManager.navigate(navDirections)
-    }
-
     private val callListener = object : NexmoRequestListener<NexmoCall> {
         override fun onSuccess(call: NexmoCall?) {
             callManager.onGoingCall = call
@@ -54,10 +47,6 @@ class MainViewModel : ViewModel() {
     fun onInit(mainFragmentArg: MainFragmentArgs) {
         val currentUserName = mainFragmentArg.userName
         _currentUserNameMutableLiveData.postValue(currentUserName)
-
-        //The same callback can be registered twice, so we are removing all callbacks to be save
-        client.removeIncomingCallListeners()
-        client.addIncomingCallListener(incomingCallListener)
     }
 
     override fun onCleared() {
