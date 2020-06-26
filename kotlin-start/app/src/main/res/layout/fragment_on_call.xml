@@ -9,7 +9,6 @@
         android:orientation="vertical"
         android:padding="48dp">
 
-
     <TextView
             android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
@@ -18,7 +17,7 @@
             android:layout_marginTop="50dp"
             android:gravity="center"
             android:singleLine="true"
-            android:text="@string/on_a_cal"
+            android:text="@string/on_a_call"
             android:textColor="@color/white"
             android:textSize="40sp" />
 

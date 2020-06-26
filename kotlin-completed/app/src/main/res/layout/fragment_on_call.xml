@@ -9,7 +9,6 @@
         android:orientation="vertical"
         android:padding="48dp">
 
-
     <TextView
             android:id="@+id/titleTextView"
             android:layout_width="wrap_content"

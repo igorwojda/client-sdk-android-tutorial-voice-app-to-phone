@@ -18,7 +18,6 @@ import kotlin.properties.Delegates
 class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
 
     private var dataLoading: Boolean by Delegates.observable(false) { _, _, newValue ->
-        startAppToAppCallButton.isEnabled = !newValue
         startAppToPhoneCallButton.isEnabled = !newValue
         progressBar.isVisible = newValue
     }
@@ -36,12 +35,7 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
     }
 
     private val currentUserObserver = Observer<String> {
-        currrentUserNameTextView.setText(R.string.hi, it)
-    }
-
-    private val otherUserObserver = Observer<String> {
-        val label = resources.getString(R.string.start_app_to_app_call_with, it)
-        startAppToAppCallButton.text = label
+        currentUserNameTextView.setText(R.string.hi, it)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,11 +46,6 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
         observe(viewModel.toastLiveData, toastObserver)
         observe(viewModel.loadingLiveData, loadingObserver)
         observe(viewModel.currentUserNameLiveData, currentUserObserver)
-        observe(viewModel.otherUserLiveData, otherUserObserver)
-
-        startAppToAppCallButton.setOnClickListener {
-            TODO("Fill be body for app to app call tutorial")
-        }
 
         startAppToPhoneCallButton.setOnClickListener {
             TODO("Fill be body for app to phone call tutorial")

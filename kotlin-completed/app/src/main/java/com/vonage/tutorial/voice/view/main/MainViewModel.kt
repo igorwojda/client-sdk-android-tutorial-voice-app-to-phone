@@ -28,9 +28,6 @@ class MainViewModel : ViewModel() {
     private val _currentUserNameMutableLiveData = MutableLiveData<String>()
     val currentUserNameLiveData = _currentUserNameMutableLiveData.asLiveData()
 
-    private val _otherUserNameMutableLiveData = MutableLiveData<String>()
-    val otherUserLiveData = _otherUserNameMutableLiveData.asLiveData()
-
     private val incomingCallListener = NexmoIncomingCallListener { call ->
         callManager.onGoingCall = call
         val navDirections = MainFragmentDirections.actionMainFragmentToIncomingCallFragment()
