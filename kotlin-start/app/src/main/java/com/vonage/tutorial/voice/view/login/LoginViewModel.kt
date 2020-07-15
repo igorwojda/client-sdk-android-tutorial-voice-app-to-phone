@@ -20,15 +20,7 @@ class LoginViewModel : ViewModel() {
     private val client: NexmoClient = TODO("Retrieve NexmoClient instance")
 
     init {
-        client.setConnectionListener { newConnectionStatus, _ ->
-
-            if (newConnectionStatus == ConnectionStatus.CONNECTED) {
-                navigateToMainFragment()
-                return@setConnectionListener
-            }
-
-            _connectionStatus.postValue(newConnectionStatus)
-        }
+        TODO("Init connection listener")
     }
 
     private fun navigateToMainFragment() {

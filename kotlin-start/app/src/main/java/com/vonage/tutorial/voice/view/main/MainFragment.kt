@@ -48,7 +48,7 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
         observe(viewModel.currentUserNameLiveData, currentUserObserver)
 
         startAppToPhoneCallButton.setOnClickListener {
-            viewModel.startAppToPhoneCall()
+            TODO("Start a call")
         }
     }
 

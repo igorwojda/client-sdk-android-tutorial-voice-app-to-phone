@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nexmo.client.NexmoCall
-import com.nexmo.client.NexmoCallHandler
 import com.nexmo.client.NexmoClient
 import com.nexmo.client.request_listener.NexmoApiError
 import com.nexmo.client.request_listener.NexmoRequestListener
@@ -56,10 +55,7 @@ class MainViewModel : ViewModel() {
 
     @SuppressLint("MissingPermission")
     fun startAppToPhoneCall() {
-        // we set the IGNORED_NUMBER argument, because our number is specified in the NCCO config
-        // (Nexmo application answer URL)
-        client.call("IGNORED_NUMBER", NexmoCallHandler.SERVER, callListener)
-        loadingMutableLiveData.postValue(true)
+        TODO("Start call")
     }
 
     fun onBackPressed() {
