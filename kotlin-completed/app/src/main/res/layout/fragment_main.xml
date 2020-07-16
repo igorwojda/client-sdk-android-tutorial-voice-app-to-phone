@@ -28,7 +28,7 @@
                 android:drawablePadding="8dp"
                 android:layout_marginTop="36dp"
                 android:padding="16dp"
-                android:text="@string/start_app_to_phone_call" />
+                android:text="@string/make_phone_call" />
 
         <androidx.core.widget.ContentLoadingProgressBar
                 android:id="@+id/progressBar"
