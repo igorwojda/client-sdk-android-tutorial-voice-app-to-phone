@@ -16,7 +16,6 @@ class BaseApplication : Application() {
 
         // Init the NexmoClient. You can retrieve NexmoClient instance latter by using NexmoClient.get()
         NexmoClient.Builder()
-            .useFirstIceCandidate(true)
             .build(this)
     }
 }
