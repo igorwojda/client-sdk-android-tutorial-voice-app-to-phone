@@ -68,6 +68,7 @@ class OnCallViewModel : ViewModel() {
         callManager.onGoingCall?.hangup(object : NexmoRequestListener<NexmoCall> {
             override fun onSuccess(call: NexmoCall?) {
                 callManager.onGoingCall = null
+                navManager.popBackStack()
             }
 
             override fun onError(apiError: NexmoApiError) {
