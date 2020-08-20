@@ -23,7 +23,7 @@ class LoginViewModel : ViewModel() {
         client.setConnectionListener { newConnectionStatus, _ ->
 
             if (newConnectionStatus == ConnectionStatus.CONNECTED) {
-                navigateToMainFragment()
+                navigateToVoiceFragment()
                 return@setConnectionListener
             }
 
@@ -31,7 +31,7 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    private fun navigateToMainFragment() {
+    private fun navigateToVoiceFragment() {
         val userName = checkNotNull(user?.name) { "user is null" }
         val navDirections =
             LoginFragmentDirections.actionLoginFragmentToVoiceFragment(
