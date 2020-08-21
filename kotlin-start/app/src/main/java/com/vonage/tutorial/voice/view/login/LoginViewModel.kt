@@ -23,7 +23,7 @@ class LoginViewModel : ViewModel() {
         TODO("Init connection listener")
     }
 
-    private fun navigateToVoiceFragment() {
+    private fun navigate() {
         val userName = checkNotNull(user?.name) { "user is null" }
         val navDirections =
             LoginFragmentDirections.actionLoginFragmentToVoiceFragment(
