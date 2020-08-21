@@ -33,10 +33,7 @@ class LoginViewModel : ViewModel() {
 
     private fun navigateToVoiceFragment() {
         val userName = checkNotNull(user?.name) { "user is null" }
-        val navDirections =
-            LoginFragmentDirections.actionLoginFragmentToVoiceFragment(
-                userName
-            )
+        val navDirections = LoginFragmentDirections.actionLoginFragmentToVoiceFragment(userName)
         navManager.navigate(navDirections)
     }
 
