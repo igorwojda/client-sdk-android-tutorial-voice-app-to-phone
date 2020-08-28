@@ -12,8 +12,8 @@ class LoginViewModel : ViewModel() {
 
     private val navManager = NavManager
 
-    private val _connectionStatus = MutableLiveData<ConnectionStatus>()
-    val connectionStatus = _connectionStatus.asLiveData()
+    private val connectionStatusMutableLiveData = MutableLiveData<ConnectionStatus>()
+    val connectionStatusLiveData = connectionStatusMutableLiveData.asLiveData()
 
     private var user: User? = null
 

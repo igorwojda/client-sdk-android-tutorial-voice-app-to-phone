@@ -45,8 +45,8 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun onInit(mainFragmentArg: MainFragmentArgs) {
-        val currentUserName = mainFragmentArg.userName
+    fun onInit(arg: MainFragmentArgs) {
+        val currentUserName = arg.userName
         _currentUserNameMutableLiveData.postValue(currentUserName)
     }
 

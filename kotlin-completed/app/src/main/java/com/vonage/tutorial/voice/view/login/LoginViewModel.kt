@@ -12,8 +12,8 @@ class LoginViewModel : ViewModel() {
 
     private val navManager = NavManager
 
-    private val _connectionStatus = MutableLiveData<ConnectionStatus>()
-    val connectionStatus = _connectionStatus.asLiveData()
+    private val connectionStatusMutableLiveData = MutableLiveData<ConnectionStatus>()
+    val connectionStatusLiveData = connectionStatusMutableLiveData.asLiveData()
 
     private var user: User? = null
 
@@ -27,7 +27,7 @@ class LoginViewModel : ViewModel() {
                 return@setConnectionListener
             }
 
-            _connectionStatus.postValue(newConnectionStatus)
+            connectionStatusMutableLiveData.postValue(newConnectionStatus)
         }
     }
 

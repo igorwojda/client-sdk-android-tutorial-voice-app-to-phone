@@ -24,7 +24,6 @@
                 app:argType="string" />
     </fragment>
 
-
     <fragment
             android:id="@+id/onCallFragment"
             android:name="com.vonage.tutorial.voice.view.oncall.OnCallFragment"
